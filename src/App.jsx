@@ -1,4 +1,8 @@
 import React from 'react';
+import OperationButton from './OparationButton';
+import './styles/style.css';
+
+const signs = ['+', '-', '*', '/', '%'];
 
 const App = () => {
 
@@ -6,19 +10,45 @@ const App = () => {
   const [secondNumber, setSecondNumber] = React.useState('');
   const [result, setResult] = React.useState();
 
+  const handleOperation = (sign) => {
+    const first = parseFloat(firstNumber);
+    const second = parseFloat(secondNumber);
+    if (sign === '+') {
+      setResult(first + second);
+    }
+    else if (sign === '-') {
+      setResult(first - second);
+    }
+    else if (sign === '*') {
+      setResult(first * second);
+    }
+    else if (sign === '/') {
+      setResult(first / second);
+    }
+    else if (sign === '%') {
+      setResult(first % second);
+    }
+  };
+
+  let i = 0;
+  const signElements = [];
+  while (i < signs.length) {
+    const currentSign = signs[i];
+    signElements.push((
+      <OperationButton
+        onOperation={handleOperation}
+        sign={currentSign}
+      />
+    ));
+    i = i + 1;
+  }
+
   const handleFirstNumberChange = (event) => {
     setFirstNumber(event.target.value);
   };
 
   const handleSecondNumberChange = (event) => {
     setSecondNumber(event.target.value);
-  };
-
-  const handlePlus = () => {
-    const first = parseFloat(firstNumber);
-    const second = parseFloat(secondNumber);
-    const tmp = first + second;
-    setResult(tmp);
   };
 
   return (
@@ -38,11 +68,7 @@ const App = () => {
         />
       </div>
       <div>
-        <button
-          onClick={handlePlus}
-        >
-          +
-        </button>
+        {signElements}
       </div>
       <div>
         {result}
