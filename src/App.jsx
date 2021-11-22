@@ -35,10 +35,14 @@ const App = () => {
   while (i < signs.length) {
     const currentSign = signs[i];
     signElements.push((
-      <OperationButton
-        onOperation={handleOperation}
-        sign={currentSign}
-      />
+      <div className="row">
+        <div class="col">
+          <OperationButton
+            onOperation={handleOperation}
+            sign={currentSign}
+        />
+        </div>
+      </div>
     ));
     i = i + 1;
   }
@@ -52,12 +56,38 @@ const App = () => {
   };
 
   return (
-    <div className="row">
-      <div className="col col-2-3">
-
-      </div>
-      <div className="col col-1-3">
-
+    <div className="container">
+      <div className="row">
+        <div className="col col-2-3">
+          <div className="row">
+            <div className="col">
+              <input
+                type="number"
+                value={firstNumber}
+                onChange={handleFirstNumberChange}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <input
+                type="number"
+                value={secondNumber}
+                onChange={handleSecondNumberChange}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <div className="result">
+                {result}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col col-1-3">
+          {signElements}
+        </div>
       </div>
     </div>
   );

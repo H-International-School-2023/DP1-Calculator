@@ -7,6 +7,7 @@ const OperationButton = (props) => {
   }
   return (
     <button
+      className="btn-block"
       onClick={handleClick}
     >
       {sign}

@@ -1,19 +1,32 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+div#root {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 input {
-  background-color: #D2D44A;
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
 }
 
 div.row {
   display: flex;
-  background-color: red;
-  border: 1px solid black;
   padding: 10px;
 }
 
 div.col {
-  background-color: green;
-  border: 1px solid white;
-  height: 50px;
   padding: 10px;
+  width: 100%;
 }
 
 div.col-1-3 {
@@ -22,4 +35,18 @@ div.col-1-3 {
 
 div.col-2-3 {
   width: 67%;;
+}
+
+button.btn-block {
+  display: block;
+  width: 100%;
+}
+
+div.container {
+  width: 50%;
+}
+
+div.result {
+  font-size: 40px;
+  text-align: center;
 }
