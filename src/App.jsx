@@ -52,6 +52,17 @@ const App = () => {
   };
 
   return (
+    <div className="row">
+      <div className="col col-2-3">
+
+      </div>
+      <div className="col col-1-3">
+
+      </div>
+    </div>
+  );
+
+  return (
     <div>
       <div>
         <label>First number</label>
